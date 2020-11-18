@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Predictor</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="{{ url_for('fppredict') }}" method="POST">
+				<span class="contact100-form-title">
+					FLIGHT-PRICE PREDICTOR
+				</span>
+				<span class="contact100-form-title"><h5>A END 2 END ML PROJECT</h5></span>
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<h4>Departure Date</h4>
+					<input class="input100" type="datetime-local" name="Dep_Time" id="Dep_Time" required="required">
+					<span class="focus-input100"></span>
+                </div>
+                
+                <div class="wrap-input100 validate-input" data-validate = "Valid value is required">
+					<h4>Arrival Date</h4>
+					<input class="input100" type="datetime-local" name="Arrival_Time" id="Arrival_Time" required="required">
+					<span class="focus-input100"></span>
+                </div>
+                
+                <div class="wrap-input100 input100-select">
+					<h4>Source</h4>
+					<div>
+						<select class="selection-2" name="Source" id="Source" required="required">
+							<option>Select Source</option>
+							<option value="2">Delhi</option>
+							<option value="3">Kolkata</option>
+							<option value="0">Bangalore</option>
+                            <option value="4">Mumbai</option>
+                            <option value="1">Chennai</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 input100-select">
+					<h4>Destination</h4>
+					<div>
+						<select class="selection-2" name="Destination" id="Destination" required="required">
+							<option>Select Destination</option>
+							<option value="1">Cochin</option>
+							<option value="0">Bangalore</option>
+                            <option value="2">Delhi</option>
+                            <option value="5">New Delhi</option>
+                            <option value="3">Hyderabad</option>
+                            <option value="4">Kolkata</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 input100-select">
+					<h4>Stoppage</h4>
+					<div>
+						<select class="selection-2" name="stops"  id="stops" required="required">
+							<option>Select Stoppage</option>
+							<option value="4">Non-Stop</option>
+                            <option value="0">1</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
+                            <option value="3">4</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 input100-select">
+					<h4>Which Airline you want to travel?</h4>
+					<div>
+						<select class="selection-2" name="airline" id="airline" required="required">
+							<option>Select Airlines</option>
+							<option value="4">Jet Airways</option>
+                            <option value="3">IndiGo</option>
+                            <option value="1">Air India</option>
+                            <option value="6">Multiple carriers</option>
+                            <option value="8">SpiceJet</option>
+                            <option value="10">Vistara</option>
+                            <option value="0">Air Asia</option>
+                            <option value="2">GoAir</option>
+                            <option value="7">Multiple carriers Premium economy</option>
+                            <option value="5">Jet Airways Business</option>
+                            <option value="11">Vistara Premium economy</option>
+                            <option value="9">Trujet</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							<span>
+								Predict
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="static/js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>

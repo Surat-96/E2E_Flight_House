@@ -7,7 +7,7 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 
 #flight price model read
 filename = open('Fligt_Price/fppmodel.pkl', 'rb')

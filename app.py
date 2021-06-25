@@ -7,10 +7,10 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
 
-app = Flask(__name__, static_folder='static', template_folder='templates')
+app = Flask(__name__)
 
 #flight price model read
-filename = open('Fligt_Price/pfmodel.pkl', 'rb')
+filename = open('poff/pfmodel.pkl', 'rb')
 clf = pickle.load(filename)
 filename.close()
 

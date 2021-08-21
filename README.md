@@ -1,2 +1,4 @@
 # E2E_Flight_House
-It is a END 2 END ML PROJECTS with FLIGHT FARE &amp; HOUSE PRICE PREDICTIONS
+It is an End 2 End ML Project with Machine
+Learning Algorithm (Random Forest), Flask by Self Implement within 1 month.
+

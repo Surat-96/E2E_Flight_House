@@ -3,18 +3,18 @@ import pickle
 import numpy as np
 import pandas as pd
 
-from flask_mysqldb import MySQL
+#from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
 
 app = Flask(__name__)
 
 #flight price model read
-filename = open('poff/pfmodel.pkl', 'rb')
+filename = open('poff/FIPmodel.pkl', 'rb')
 clf = pickle.load(filename)
 filename.close()
 
-filename = open('House_Price/housepricepredictmodel.pkl', 'rb')
+filename = open('House_Price/hpmodel.pkl', 'rb')
 model = pickle.load(filename)
 filename.close()
 
